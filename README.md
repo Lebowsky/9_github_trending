@@ -1,6 +1,6 @@
 # Github Trends
 
-[TODO. There will be project description]
+The script receives from the site: github.com top 20 popular repositories for the last week and displays the list in descending order, as well as counts the number of open issues
 
 # Project Goals
 
