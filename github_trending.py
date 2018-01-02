@@ -3,9 +3,9 @@ import datetime
 
 
 def get_trending_repositories(top_size):
-    days_a_week = 7
+    days_amount = 7
     now = datetime.datetime.now()
-    last_week = now.date() - datetime.timedelta(days=days_a_week)
+    last_week = now.date() - datetime.timedelta(days=days_amount)
 
     response = requests.get(
         'https://api.github.com/search/repositories',
@@ -30,13 +30,13 @@ if __name__ == '__main__':
     top_size_repo = 20
     repos = get_trending_repositories(top_size_repo)
 
-    for index, repo in enumerate(repos):
+    for index, repo in enumerate(repos, start=1):
         repo_owner = repo['owner']['login']
         repo_name = repo['name']
         repo_url = repo['html_url']
         issues_amount = get_open_issues_amount(repo_owner, repo_name)
         print(
-            index + 1,
+            index,
             repo_url,
             ' ({} open issues)'.format(issues_amount),
         )
